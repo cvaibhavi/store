@@ -388,18 +388,16 @@ const homeapi = {
     links: [
       [
         {link: "News"},
-        {link: "Careers"},
-        {link: "Prupose"},
+        {link: "Contact Us"},
         {link: "Address"},
       ],
       [
         {link: "Order Status"},
         {link: "Shipping & Delivery"},
         {link: "Payment Options"},
-        {link: "Contact Us"},
+        
       ],
       [
-        {link: "Promotions"},
         {link: "Find A Store"},
         {link: "Signup"},
         {link: "Send Us Feeback"},
