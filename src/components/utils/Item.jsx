@@ -1,12 +1,34 @@
-import React from 'react'
-import { useDispatch } from 'react-redux';
-import {StarIcon,ShoppingBagIcon} from "@heroicons/react/24/solid";
-
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import {StarIcon,ShoppingBagIcon,HeartIcon} from "@heroicons/react/24/solid";
 import { setAddItemToCart,setOpenCart } from '../../app/CartSlice';
+import {  selectFavItems, setAddToFav,  setRemoveFromFav } from '../../app/FavouriteSlice';
 
-const Item = ({ ifExists, id, title, text, img, color, shadow, price,btn,rating }) => {
+
+const Item = ({ ifExists, id, title, text, img, color, shadow, price,btn,rating,isFav }) => {
 
   const dispatch = useDispatch();
+  const favItems = useSelector(selectFavItems);
+  const [favouriteColor, setFavouriteColor] = useState(isFav ? true : false);
+  
+
+
+  const onFavourite = () => {
+    setFavouriteColor(!favouriteColor);
+    console.log(favouriteColor);
+    
+    const item = { id,title,text,img,color,shadow,price,rating}
+
+    if(favouriteColor === false){
+    dispatch(setAddToFav(item));
+    
+    }
+
+    else{
+      dispatch(setRemoveFromFav(item));
+      
+    }
+  }
 
   const onAddToCart = () => {
     const item = { id,title,text,img,color,shadow,price,rating}
@@ -18,6 +40,8 @@ const Item = ({ ifExists, id, title, text, img, color, shadow, price,btn,rating 
         cartState: true
     }))
   }
+
+
 
   return (
     <>
@@ -39,6 +63,11 @@ const Item = ({ ifExists, id, title, text, img, color, shadow, price,btn,rating 
             
             <div className="flex items-center bg-white/80  px-1 rounded blur-effect-theme">
                <h1 className="text-black text-sm font-medium">{price}</h1>
+            </div>
+            <div>
+              <button onClick={()=> onFavourite()} type="button">
+                <HeartIcon className={`icon-style ${favouriteColor ? "text-red-600" : "text-white"}`} />
+              </button>
             </div>
             <div className="flex items-center gap-1">
                 <StarIcon className="icon-style w-5 h-5 md:w-4 md:h-4" />

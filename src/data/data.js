@@ -33,6 +33,7 @@ import midipickle from "../assets/midi-pickle.jpg";
 import kuslakki from "../assets/kuslakki.jpg";
 
 import punarpuli from "../assets/punarpuli.jpg";
+import linkedIn from "../assets/linkedIn.png";
 
 
 const homeapi = {
@@ -42,11 +43,21 @@ const homeapi = {
     btntext: "Explore Product",
     
     sociallinks: [
-      { icon: facebook },
-      { icon: messenger },
-      { icon: instagram },
-      { icon: twitter },
-      { icon: youtube },
+      { icon: facebook,
+        url:"https://m.facebook.com/100021618545682/", 
+      },
+      { icon: messenger,
+        url:"https://www.linkedin.com/in/vaibhavi-c-93968920a", 
+      },
+      { icon: instagram,
+        url:"https://www.instagram.com/_vaibhavi_prabhu_/",
+      },
+      { icon: twitter,
+        url:"",
+      },
+      { icon: youtube,
+        url:"",
+      },
     ],
   };
 

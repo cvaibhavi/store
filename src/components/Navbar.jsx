@@ -3,6 +3,7 @@ import { HeartIcon, MagnifyingGlassIcon, ShoppingCartIcon } from '@heroicons/rea
 import logo from "../assets/Layer 2.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { setOpenCart,selectTotalQTY } from '../app/CartSlice';
+import { setOpenFav } from '../app/FavouriteSlice';
 
 const Navbar = () => {
 
@@ -13,6 +14,12 @@ const Navbar = () => {
     const onCartToggle = () => {
         dispatch(setOpenCart({
             cartState:true,
+        }))
+    }
+
+    const onFavToggle = () => {
+        dispatch(setOpenFav({
+            favState:true,
         }))
     }
 
@@ -47,7 +54,9 @@ const Navbar = () => {
                     <MagnifyingGlassIcon className={`icon-style ${navState && "text-slate-900 transition-all duration-300"}`}/>
                 </li>
                 <li className='grid items-center'>
-                    <HeartIcon className={`icon-style ${navState && "text-slate-900 transition-all duration-300"}`}/>
+                    <button type="button" onClick={onFavToggle} className="border-none outline-none active:scale-110 transition-all duration-300 relative">
+                        <HeartIcon className={`icon-style ${navState && "text-slate-900 transition-all duration-300"}`}/>
+                    </button>   
                 </li>
                 <li className='grid items-center'>
                     <button type='button' onClick={onCartToggle} className='border-none outline-none active:scale-110 transition-all duration-300 relative'>

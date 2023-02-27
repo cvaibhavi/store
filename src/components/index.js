@@ -1,4 +1,5 @@
 export {default as Navbar} from './Navbar'
+export {default as Favourite} from './Favourite'
 export {default as Cart} from './Cart'
 export {default as Home} from './Home.jsx';
 export {default as Menu} from './Menu.jsx';
